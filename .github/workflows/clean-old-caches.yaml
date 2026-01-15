@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install PyGithub
+          pip install --no-cache-dir PyGithub
 
       - name: Clean old caches
         env:
