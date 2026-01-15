@@ -3,7 +3,7 @@ import os
 from collections import defaultdict
 from github import Github
 
-keep_count = 3
+keep_count = 2
 
 def main():
     token = os.environ.get('GITHUB_TOKEN')
