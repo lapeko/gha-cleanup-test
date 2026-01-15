@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "0 2 * * *"
   workflow_dispatch:
+    inputs:
+      keep_count:
+        description: "Number of caches to keep per group"
+        required: false
+        default: "2"
+        type: string
 
 jobs:
   clean:
@@ -28,4 +34,5 @@ jobs:
       - name: Clean old caches
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEP_COUNT: ${{ inputs.keep_count }}
         run: python .github/scripts/clean_caches.py

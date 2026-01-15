@@ -3,9 +3,8 @@ import os
 import requests
 from collections import defaultdict
 
-keep_count = 2
-
 def main():
+    keep_count = int(os.environ.get('KEEP_COUNT', '2'))
     token = os.environ.get('GITHUB_TOKEN')
     repo_name = os.environ.get('GITHUB_REPOSITORY')
     
