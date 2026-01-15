@@ -2,13 +2,13 @@ name: Clean old caches
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: "0 2 * * *"
   workflow_dispatch:
     inputs:
       keep_count:
-        description: 'Number of caches to keep per group'
+        description: "Number of caches to keep per group"
         required: false
-        default: '1'
+        default: "2"
         type: string
 
 jobs:
@@ -25,11 +25,11 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: "3.13"
 
-      - name: Install dependencies
-        run: |
-          pip install --no-cache-dir PyGithub
+      # - name: Install dependencies
+      #   run: |
+      #     pip install --no-cache-dir PyGithub
 
       - name: Clean old caches
         env:
